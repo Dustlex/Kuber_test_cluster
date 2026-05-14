@@ -1,0 +1,7 @@
+ - name: kuber_join
+   block:
+    - name: kuber_join
+      shell: "{{ hostvars['master1']['kuber_join']['stdout'] }}" # извращения, т.к. kubeadm token create отправляется в переменную  kuber_join в другой роли плейбука, и исполняется на сервере master1
+      args:
+        creates: /etc/kubernetes/kubelet.conf
+      become: yes

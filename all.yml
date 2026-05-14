@@ -1,0 +1,13 @@
+- name:
+  hosts: kuber_master
+  roles: 
+    - role: master_up
+      tags: master_up
+
+- name:
+  hosts: kuber_worker
+  roles: 
+    - role: worker_up
+      tags: master_up
+    - role: worker_join
+      tags: worker_join
